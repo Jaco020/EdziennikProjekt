@@ -1,0 +1,76 @@
+@import "../CSS//variables.css";
+root{
+    --var-100:#fff;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.loginCont{
+    margin: 100px auto 0px auto;
+    text-align: center;
+    width: 500px;
+    background-color: var(--white-100);
+    border-radius: 10px;
+    padding: 20px 0px;
+}
+.loginCont__logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+p.logo{
+    margin-left: 5px;
+    font-size: 2.5rem;
+}
+h4{
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+form{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.logInput{
+    overflow: hidden;
+    padding: 10px 15px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--gray-100);
+    outline: none;
+    transition: .1s linear;
+}
+.logInput:focus{
+    border: 2px solid var(--blue-300);
+}
+.btn{
+    background-color: var(--blue-300);
+    border: none;
+    outline: none;
+    color: var(--white-100);
+    padding: 10px;
+    font-size: 2rem;
+    border-radius: 5px;
+    transition: .1s linear;
+}
+.btn:hover{
+    background-color: var(--blue-400);
+    cursor: pointer;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--black-300);
+    color: var(--white-100);
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+}
