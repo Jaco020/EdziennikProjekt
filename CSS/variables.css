@@ -3,8 +3,17 @@
     --white-150:#edf1fa;
 
     --gray-100: #ececec;
-    --black-300:#212121;
+    --gray-200: #cfcfcf;
+    --gray-300: #bdbdbd;
+    --gray-400: #9e9e9e;
+    --gray-450: #8f8f8f;
 
+    --black-300:#212121;
+    --black-500:#0e0e0e;
+
+    --blue-200: #78bef7;
     --blue-300: #47a5f1;
-    --blue-400: #2598f7;
+    --blue-400: #1688f3;
+    --blue-450: #287cfa;
+    --blue-500: #1b57fc;
 }
