@@ -1,0 +1,35 @@
+@import "../CSS//variables.css";
+.mainCont__info{
+    padding-bottom: 30px;
+}
+.infoRow{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.infoRow__itemh h3{
+    padding: 10px 20px;
+}
+table{
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 550px;
+}
+td,th{
+    border: 1px solid #212121;
+    padding: 8px;
+    font-size: 1.5rem;
+}
+th{
+    text-align: left;
+    background-color: var(--gray-100);
+}
+.green{
+    color:#059e0d
+}
+.warning{
+    color: #d47304;
+}
