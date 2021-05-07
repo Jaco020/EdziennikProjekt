@@ -2,51 +2,6 @@
 :root{
     --var:#fff;
 }
-.menuBaner{
-    background-color: var(--white-100);
-    width: 100%;
-    padding: 20px 4%;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--gray-200);
-    align-items: center;
-}
-.menuBaner__item{
-    display: flex;
-    align-items: center;
-}
-.menuBaner__item i {
-    font-size: 3rem;
-}
-p.userName{
-    font-size: 1.8rem;
-    margin-left: 10px;
-}
-.logout{
-    font-size: 1.6rem;
-    margin-left: 30px;
-}
-.OcenyCont{
-    width: 1100px;
-    border-radius: 10px;
-    background-color: var(--white-100);
-    margin: 50px auto 50px auto;
-    overflow: hidden;
-    box-shadow: 0px 0px 5px 0px var(--blue-450);
-}
-.OcenyCont__header{
-    background-color: var(--blue-450);
-    width: 100%;
-    padding: 10px 20px;
-    color: var(--white-100);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.dataInfo i {
-    font-size: 1.8rem;
-    margin-right: 10px;
-}
 table{
     border-collapse: collapse;
     width: 100%;
@@ -66,7 +21,7 @@ th{
 .shortCell{
     width: 10%;
 }
-/* Brak bordera aby na zewnętrznych komórkach */
+/* Brak bordera na zewnętrznych komórkach */
 .noneLeft{
     border-left: none;
 }

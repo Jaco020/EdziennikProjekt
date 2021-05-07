@@ -42,8 +42,3 @@ a:hover{
 h3{
     font-size: 2rem;
 }
-p.dataInfo{
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-}
