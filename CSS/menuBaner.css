@@ -1,5 +1,7 @@
 @import "../CSS//variables.css";
 .menuBaner{
+    position: sticky;
+    top: 0;
     background-color: var(--white-100);
     width: 100%;
     padding: 20px 4%;

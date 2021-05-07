@@ -5,97 +5,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oceny Ucznia</title>
+    <link rel="shortcut icon" href="../IMG/logo.png" type="image/png">
     <link rel="stylesheet" href="../CSS/globals.css">
     <link rel="stylesheet" href="../CSS/menuBaner.css">
     <link rel="stylesheet" href="../CSS/mainCont.css">
     <link rel="stylesheet" href="../CSS/ocenyUcznia.css">
+    <link rel="stylesheet" href="../CSS/sideMenu.css">
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <navbar class="menuBaner">
-        <div class="menuBaner__item">
-            <img src="../IMG/logo.png">
-            <p class="logo">E-Dziennik</p>
+        <navbar class="menuBaner">
+            <div class="menuBaner__item">
+                <img src="../IMG/logo.png">
+                <p class="logo">E-Dziennik</p>
+            </div>
+            <div class="menuBaner__item">
+                <i class="fas fa-user-graduate"></i>
+                <p class="userName">Jakub Selonke</p>
+                <p class="logout"><a href="login.html">Wyloguj</a></p>
+            </div>
+        </navbar>
+        <div class="sideMenu">
+            <a class="sideMenu__item" href="#"><i class="fas fa-home"></i>Podlgląd wyników ucznia</a>
+            <a class="sideMenu__item sideMenu__item--active" href="#"><i class="fas fa-book-reader"></i>Oceny</a>
+            <a class="sideMenu__item" href="#"><i class="fas fa-clipboard"></i>Sprawdziany</a>
+            <a class="sideMenu__item" href="#"><i class="fas fa-user-clock"></i>Frekfencja</a>
+            <a class="sideMenu__item" href="#"><i class="fas fa-user-check"></i>Zachowanie</a>
+            <a class="sideMenu__item" href="#"><i class="fas fa-envelope"></i>Ogłoszenia</a>
         </div>
-        <div class="menuBaner__item">
-            <i class="fas fa-user-graduate"></i>
-            <p class="userName">Jakub Selonke</p>
-            <p class="logout"><a href="login.html">Wyloguj</a></p>
-        </div>
-    </navbar>
-    <div class="mainCont">
-        <div class="mainCont__header">
-            <h3 class="OpisCont">Oceny Ucznia</h3>
-            <p class="dataInfo" title="Data Aktualizacji"><i class="far fa-calendar-alt"></i>2021-05-06 08:53:22</p>
-        </div>
-        <div class="mainCont__info">
-            <table>
-                <tr>
-                    <th class="longCell noneLeft">Zajęcia</td>
-                    <th class="longCell">Oceny Cząstkowe </br>Semestr 1</td>
-                    <th class="shortCell">Oceny Przewidywane </br> Semestr 1</td>
-                    <th class="shortCell">Oceny Okresowe</td>
-                    <th class="longCell">Oceny Cząstkowe</br> Semestr 2</td>
-                    <th class="shortCell">Oceny Przewidywane </br> Semestr 2</td>
-                    <th class="shortCell noneRight">Oceny Końcowe</td>
-                </tr>
-                <tr>
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-                <tr>
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-                <tr>
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-                <tr>
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-                <tr>
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-                <tr class="noneBottom">
-                    <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="noneRight"></td>
-                </tr>
-            </table>
+        <div class="mainCont">
+            <div class="mainCont__header">
+                <h3 class="OpisCont">Oceny Ucznia</h3>
+                <p class="dataInfo" title="Data Aktualizacji"><i class="far fa-calendar-alt"></i>2021-05-06 08:53:22</p>
+            </div>
+            <div class="mainCont__info">
+                <table>
+                    <tr>
+                        <th class="longCell noneLeft">Zajęcia</td>
+                        <th class="longCell">Oceny Cząstkowe </br>Semestr 1</td>
+                        <th class="shortCell">Oceny Przewidywane </br> Semestr 1</td>
+                        <th class="shortCell">Oceny Okresowe</td>
+                        <th class="longCell">Oceny Cząstkowe</br> Semestr 2</td>
+                        <th class="shortCell">Oceny Przewidywane </br> Semestr 2</td>
+                        <th class="shortCell noneRight">Oceny Końcowe</td>
+                    </tr>
+                    <tr>
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                    <tr>
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                    <tr>
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                    <tr>
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                    <tr>
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                    <tr class="noneBottom">
+                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="noneRight"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="sideMenu"></div>
 </body>
 </html>
