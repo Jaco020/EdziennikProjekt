@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../CSS/menuBaner.css">
     <link rel="stylesheet" href="../CSS/sideMenu.css">
     <link rel="stylesheet" href="../CSS//podglad.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -65,8 +66,9 @@
                         </tr>
                     </table>
                 </div>
-                <div class="infoRow__item">
+                <div  class="infoRow__item" style="margin-left: 50px;">
                     <h3>Nieobecności Ucznia</h3>
+                    <canvas width="450px" height="250px"  id="wykresFrekfencja"></canvas>
                 </div>
             </div>
             <div class="infoRow">
@@ -117,11 +119,26 @@
                         </tr>
                     </table>
                 </div>
-                <div class="infoRow__item">
+                <div class="infoRow__item" style="margin-left: 50px;">
                     <h3>Najnowsze Ogłoszenie</h3>
+                    <div class="ogloszenie">
+                        <p class="tytul">Komunikat</p>
+                        <p class="tresc">Dzień dobry, Szanowni Rodzice Uczniowie w wieku 7 lat lub starsi jeżdżą za darmo w gdyńskich autobusach i trolejbusach, jeżeli mieszkają w Gdyni i posiadają poświadczający to dokument. Jeżeli uczeń używa legitymacji szkolnej, prosimy o sprawdzenie, czy jest tam wpisany gdyński adres zamieszkania! Jeśli nie ma informacji o adresie, potrzebny jest dodatkowy dokument! Może to być pisemne zaświadczenie ze szkoły lub Karta Mieszkańca. WAŻNA INFORMACJA: Jeżeli uczeń posiada Kartę Mieszkańca, należy pamiętać o przedłużeniu uprawnień do bezpłatnych przejazdów do 30 września w gdyńskim InfoBoksie (przy ul. Świętojańskiej 30 od poniedziałku do piątku w godz. 8.00-18.00). Aby to zrobić, potrzebna będzie aktualna legitymacja szkolna + zaświadczenie o adresie zamieszkania jeśli nie ma takiej adnotacji w legitymacji. Dzięki posiadaniu Karty Mieszkańca, legitymacja szkolna nie będzie już potrzebna w pojazdach ZKM. Szczegółowe informacje na temat bezpłatnych przejazdów dla gdyńskich dzieci i młodzieży znajdują się na stronie zkmgdynia.pl</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
+    <script src="../JavaScript/wykres.js"></script>
+    <script>
+        var text = document.querySelector(".tresc"); // tresci ogloszenia
+        if(text.innerHTML.length >= 435){ // innerHTML = tekst
+            let textCut = text.innerHTML.substring(0,435); // redukcja tekstu
+            const lastSpace = textCut.lastIndexOf(" "); //indeks ostatniej spacji - aby nie urywac polowy wyrazu
+            text.innerHTML = textCut.substring(0,lastSpace); // utnij zadlugie ogloszenie
+            text.innerHTML+= "...";
+            document.querySelector(".ogloszenie").innerHTML+="<a href='ogloszenia.html'>Czytaj Wiecej</a>";
+        }
+    </script>   
 </body>
 </html>
