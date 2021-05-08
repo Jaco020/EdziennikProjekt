@@ -3,7 +3,7 @@
     width: 1100px;
     border-radius: 10px;
     background-color: var(--white-100);
-    margin: 50px 0;
+    margin: 50px auto;
     margin-left: 230px;
     box-shadow: 0px 0px 5px 0px var(--blue-450);
     overflow:hidden;
@@ -25,4 +25,16 @@ p.dataInfo{
     font-size: 1.2rem;
     display: flex;
     align-items: center;
+}
+@media screen and (min-width:1500px){
+    .mainCont{
+        width: 1150px;
+        margin-left: 330px;
+    }
+}
+@media screen and (min-width:1679px){
+    .mainCont{
+        width: 75%;
+        margin-left: 330px;
+    }
 }

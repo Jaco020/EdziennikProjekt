@@ -32,3 +32,21 @@
     color: var(--blue-500);
     background-color: var(--blue-500-t);
 }
+@media screen and (min-width:1500px){
+    .sideMenu{
+        width: 300px;
+    }
+    .sideMenu__item{
+        font-size: 2rem;
+        padding: 15px 15px;
+    }
+}
+@media screen and (min-width:1679px){
+    .sideMenu{
+        width: 300px;
+    }
+    .sideMenu__item{
+        font-size: 2rem;
+        padding: 15px 15px;
+    }
+}

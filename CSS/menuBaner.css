@@ -25,3 +25,16 @@ p.userName{
     font-size: 1.6rem;
     margin-left: 30px;
 }
+@media screen and (min-width:1679px){
+    .menuBaner{
+        padding: 25px 4%;
+    }
+    p.userName{
+        font-size: 2rem;
+        margin-left: 10px;
+    }
+    .logout{
+        font-size: 2rem;
+        margin-left: 30px;
+    }
+}

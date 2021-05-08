@@ -15,7 +15,6 @@
     padding: 10px 20px;
 }
 table{
-    /* margin-top: 20px; */
     border-collapse: collapse;
     width: 550px;
 }
@@ -50,4 +49,24 @@ p.tytul{
 p.tresc{
     font-size: 1.5rem;
     margin-bottom: 10px;
+}
+canvas{
+    width: 450px;
+    height: 250px;
+}
+@media screen and (min-width:1679px){
+    table{
+        width: 600px;
+    }
+    .ogloszenie,canvas{
+        width: 550px;
+    }
+}
+@media screen and (min-width:1870px){
+    table{
+        width: 680px;
+    }
+    .ogloszenie,canvas{
+        width: 620px;
+    }
 }
