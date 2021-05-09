@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frekfencja Ucznia</title>
+    <link rel="shortcut icon" href="../IMG/logo.png" type="image/png">
+    <link rel="stylesheet" href="../CSS/globals.css">
+    <link rel="stylesheet" href="../CSS/menuBaner.css">
+    <link rel="stylesheet" href="../CSS/mainCont.css">
+    <link rel="stylesheet" href="../CSS/tableGlobal.css">
+    <link rel="stylesheet" href="../CSS/sideMenu.css">
+    <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+        <navbar class="menuBaner">
+            <div class="menuBaner__item">
+                <img src="../IMG/logo.png">
+                <p class="logo">E-Dziennik</p>
+            </div>
+            <div class="menuBaner__item">
+                <i class="fas fa-user-graduate"></i>
+                <p class="userName">Jakub Selonke</p>
+                <p class="logout"><a href="login.html">Wyloguj</a></p>
+            </div>
+        </navbar>
+        <div class="sideMenu">
+            <a class="sideMenu__item" href="podglad.html"><i class="fas fa-home"></i>Podgląd wyników ucznia</a>
+            <a class="sideMenu__item" href="ocenyUcznia.html"><i class="fas fa-book-reader"></i>Oceny</a>
+            <a class="sideMenu__item" href="sprawdziany.html"><i class="fas fa-clipboard"></i>Sprawdziany</a>
+            <a class="sideMenu__item sideMenu__item--active" href="frekfencja.html"><i class="fas fa-user-clock"></i>Frekfencja</a>
+            <a class="sideMenu__item" href="zachowanie.html"><i class="fas fa-user-check"></i>Zachowanie</a>
+            <a class="sideMenu__item" href="ogloszenia.html"><i class="fas fa-envelope"></i>Ogłoszenia</a>
+        </div>
+        <div class="mainCont">
+            <div class="mainCont__header">
+                <h3 class="OpisCont">Frekfencja Ucznia</h3>
+                <p class="dataInfo" title="Data Aktualizacji"><i class="far fa-calendar-alt"></i>2021-05-06 08:53:22</p>
+            </div>
+            <div class="mainCont__info">
+                <table>
+                    <tr>
+                        <th class="noneLeft">Zajęcia</th>
+                        <th>Data zajęć</th>
+                        <th>Czas zajęć</th>
+                        <th>Status</th>
+                        <th>Komentarz</th>
+                        <th>Treść usprawiedliwienia</th>
+                        <th class="noneRight">Akcja</th>
+                    </tr>
+                    <tr>
+                        <td class="noneLeft">Aplikacje</td>
+                        <td>04.10.2021</td>
+                        <td>10:45-11:30</td>
+                        <td>Wnioskowanie o usprawiedliwienie</td>
+                        <td></td>
+                        <td>Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza</td>
+                        <td class="noneRight"><a href="#">Usprawiedliwienie</a></td>
+                    </tr>
+                    <tr>
+                        <td class="noneLeft">Matematyka</td>
+                        <td>03.10.2021</td>
+                        <td>13:45-14:25</td>
+                        <td>Nieusprawiedliwione</td>
+                        <td>Ucieczka z Lekcji</td>
+                        <td></td>
+                        <td class="noneRight"><a href="#">Usprawiedliwienie</a></td>
+                    </tr>
+                    <tr class="noneBottom">
+                        <td class="noneLeft">Informatyka</td>
+                        <td>02.10.2021</td>
+                        <td>10:45-11:30</td>
+                        <td>usprawiedliwione</td>
+                        <td></td>
+                        <td>Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza</td>
+                        <td class="noneRight"><a href="#">Usprawiedliwienie</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
