@@ -1,7 +1,4 @@
 @import "../CSS//variables.css";
-root{
-    --var-100:#fff;
-}
 body{
     height: 100vh;
     overflow: hidden;

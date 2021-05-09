@@ -45,6 +45,7 @@ th{
 p.tytul{
     font-size: 1.8rem;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 p.tresc{
     font-size: 1.5rem;

@@ -36,8 +36,11 @@ a,a:visited{
     color: var(--blue-300);
     transition: .1s linear;
 }
-a:hover{
-    color: var(--blue-500);
+table a,a:hover{
+    color: var(--blue-500) !important;
+}
+table a{
+    color: var(--blue-400) !important;
 }
 h3{
     font-size: 2rem;

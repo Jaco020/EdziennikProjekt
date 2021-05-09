@@ -1,0 +1,22 @@
+.ogloszeniaCont__item{
+    background-color: var(--white-200);
+    width: 95%;
+    margin: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.ogloszeniaCont__item p.dataInfo{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: #707070;
+}
+p.tytul{
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+p.tresc{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}

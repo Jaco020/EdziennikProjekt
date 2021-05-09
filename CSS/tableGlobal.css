@@ -1,7 +1,4 @@
 @import "../CSS//variables.css";
-:root{
-    --var:#fff;
-}
 table{
     border-collapse: collapse;
     width: 100%;
@@ -12,7 +9,7 @@ td,th{
     font-size: 1.5rem;
 }
 th{
-    background-color: var(--gray-100);
+    background-color: var(--gray-200);
 }
 /* Długość komurek */
 .longCell{
