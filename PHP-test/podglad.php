@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['zalogowany']))
+	{
+		header('Location:login.php');
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -23,7 +31,7 @@
         <div class="menuBaner__item">
             <i class="fas fa-user-graduate"></i>
             <p class="userName">Jakub Selonke</p>
-            <p class="logout"><a href="login.html">Wyloguj</a></p>
+            <p class="logout"><a href="logoutHandler.php">Wyloguj</a></p>
         </div>
     </navbar>
     <div class="sideMenu">
@@ -130,6 +138,15 @@
         </div>
     </div>
     <script src="../JavaScript/wykres.js"></script>
-    <script src="../JavaScript/podglad.js"></script>   
+    <script>
+        var text = document.querySelector(".tresc"); // tresci ogloszenia
+        if(text.innerHTML.length >= 435){ // innerHTML = tekst
+            let textCut = text.innerHTML.substring(0,435); // redukcja tekstu
+            const lastSpace = textCut.lastIndexOf(" "); //indeks ostatniej spacji - aby nie urywac polowy wyrazu
+            text.innerHTML = textCut.substring(0,lastSpace); // utnij zadlugie ogloszenie
+            text.innerHTML+= "...";
+            document.querySelector(".ogloszenie").innerHTML+="<a href='ogloszenia.html'>Czytaj Wiecej</a>";
+        }
+    </script>   
 </body>
 </html>
