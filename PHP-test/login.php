@@ -27,14 +27,21 @@
         </div>
         <h4>Zaloguj się do systemu</h4>
         <form class="loginCont__form" action="LoginHandler.php" method="post">
-            <input type="text" class="logInput" id="loginInput" placeholder="Login">
-            <input type="password" class="logInput" id="passInput" placeholder="Hasło">
+            <input type="text" name="login" class="logInput" id="loginInput" placeholder="Login">
+            <input type="password" name="pass" class="logInput" id="passInput" placeholder="Hasło">
             <button class="btn">Zaloguj</button>
-            <?php
-	            if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
-            ?>
         </form>
     </div>
+    <?php
+        if (isset($_GET["error"])) {
+            if ($_GET["error"] == "pusteDane"){
+                echo "<p class='error' style='color:red;text-align:center;font-size:2.5rem'>Nie uzupełniono wszystkich danych</p>";
+            }
+            else if ($_GET["error"] == "zleDane"){
+                echo "<p class='error' style='color:red;text-align:center;font-size:2.5rem>Login lub hasło jest nieprawidłowe</p>";
+            }
+        };
+    ?>
     <footer>
         System E-dziennik. Projekt stworzyli Bartosz Rożyk i Jakub Selonke 
     </footer>

@@ -1,26 +1,28 @@
 <?php
 	session_start();
-	if ((!isset($_POST['login'])) || (!isset($_POST['haslo']))){
-		header('Location: login.php');
+	$userlogin = $_POST['login'];
+	$userpass = $_POST['pass'];
+	if (($userlogin=="") || ($userpass=="")){
+		header('Location: login.php?error=pusteDane');
 		exit();
 	}
 	require_once "connect.php";
-	
-	if (!$polaczenie) die("Błąd połączenia: ".$polaczenie->connect_error);
+
+	$sql="SELECT user_id,username,dataSystemu FROM uzytkownik WHERE login='$userlogin' AND password='$userpass';";
+	$wynik = $polaczenie->query($sql);
+	if(mysqli_num_rows($wynik)>0 || $wynik){
+		$daneBazy = $wynik->fetch_array(); //$daneBazy[0],=user_id$daneBazy[1] = username , $daneBazy[2] = data , 
+		mysqli_close($polaczenie);
+		header('Location: podglad.php');
+		$_SESSION['zalogowany'] = true;
+		$_SESSION['user_id'] = $daneBazy[0];
+		$_SESSION['username']=$daneBazy[1];
+		$_SESSION['dataSystemu']=$daneBazy[2];
+		exit();
+	}
 	else{
-			$sql = "SELECT username FROM dane_klienta;";
-			if ($result = mysqli_query($polaczenie, $sql)){
-			$wiersz = $rezultat->fetch_assoc();
-			$_SESSION['username'] = $wiersz['username'];
-			}
-        }
-        mysqli_close($polaczenie);
-				
-	else if{	
-		$_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
-		header('Location: login.php');
-		}
-			
+		header('Location: login.php?error=zleDane');
+		exit();
+	}
 	$polaczenie->close();
-	
 ?>

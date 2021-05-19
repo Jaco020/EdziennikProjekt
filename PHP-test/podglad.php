@@ -30,22 +30,22 @@
         </div>
         <div class="menuBaner__item">
             <i class="fas fa-user-graduate"></i>
-            <p class="userName">Jakub Selonke</p>
+            <p class="userName"><?php echo $_SESSION["username"]; ?></p>
             <p class="logout"><a href="logoutHandler.php">Wyloguj</a></p>
         </div>
     </navbar>
     <div class="sideMenu">
-        <a class="sideMenu__item sideMenu__item--active" href="podglad.html"><i class="fas fa-home"></i>Podgląd wyników ucznia</a>
-            <a class="sideMenu__item" href="ocenyUcznia.html"><i class="fas fa-book-reader"></i>Oceny</a>
-            <a class="sideMenu__item" href="sprawdziany.html"><i class="fas fa-clipboard"></i>Sprawdziany</a>
-            <a class="sideMenu__item" href="frekfencja.html"><i class="fas fa-user-clock"></i>Frekfencja</a>
-            <a class="sideMenu__item" href="zachowanie.html"><i class="fas fa-user-check"></i>Zachowanie</a>
-            <a class="sideMenu__item" href="ogloszenia.html"><i class="fas fa-envelope"></i>Ogłoszenia</a>
-    </div>
+            <a class="sideMenu__item sideMenu__item--active" href="podglad.php"><i class="fas fa-home"></i>Podgląd wyników ucznia</a>
+            <a class="sideMenu__item" href="ocenyUcznia.php"><i class="fas fa-book-reader"></i>Oceny</a>
+            <a class="sideMenu__item" href="sprawdziany.php"><i class="fas fa-clipboard"></i>Sprawdziany</a>
+            <a class="sideMenu__item" href="frekfencja.php"><i class="fas fa-user-clock"></i>Frekfencja</a>
+            <a class="sideMenu__item " href="zachowanie.php"><i class="fas fa-user-check"></i>Zachowanie</a>
+            <a class="sideMenu__item" href="ogloszenia.php"><i class="fas fa-envelope"></i>Ogłoszenia</a>
+        </div>
     <div class="mainCont">
         <div class="mainCont__header">
             <h3 class="OpisCont">Informacje o wynikach w nauce</h3>
-            <p class="dataInfo" title="Data Aktualizacji"><i class="far fa-calendar-alt"></i>2021-05-06 08:53:22</p>
+            <p class="dataInfo" title="Data Aktualizacji"><i class="far fa-calendar-alt"></i><?php echo $_SESSION["dataSystemu"]; ?></p>
         </div>
         <div class="mainCont__info">
             <div class="infoRow">
@@ -54,23 +54,45 @@
                     <table>
                         <tr>
                             <td>Czy są nieobecności nieusprawiedliwione</td>
-                            <td class="warning">Tak</td>
-                            <td><a href="#">Nieobecności ucznia</a></td>
+                            <td class="warning"><?php 
+                        require_once "connect.php";
+                        $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
+                        $wynik = $polaczenie->query($sql);
+                        if($wynik){
+                            $dane = $wynik->fetch_array();
+                            if($dane[0]=='1'){echo "Tak";}
+                            else{echo "Nie";}
+                        };
+                        ?></td>
+                            <td><a href="../PHP-test/frekfencja.php">Nieobecności ucznia</a></td>
                         </tr>
                         <tr>
                             <td>Data ostatniego spóźnienia</td>
-                            <td class="green">Brak</td>
-                            <td><a href="#">Spóźnienia ucznia</a></td>
+                            <td class="green"><?php 
+                        require_once "connect.php";
+                        $sql="select count(status) from frekfencja WHERE frekfencja.status='spoznienie' AND user_id=$_SESSION[user_id]";
+                        $wynik = $polaczenie->query($sql);
+                        if($wynik){
+                            $dane = $wynik->fetch_array();
+                            if($dane[0]=='1'){echo "Tak";}
+                            else{echo "Brak";}
+                        };
+                        ?></td>
+                            <td><a href="../PHP-test/frekfencja.php">Spóźnienia ucznia</a></td>
                         </tr>
                         <tr>
                             <td>Czy są zaplanowane Prace?</td>
-                            <td class="green">Brak</td>
-                            <td><a href="#">Zaplanowane Pracy</a></td>
-                        </tr>
-                        <tr>
-                            <td>Data ostatniej Uwagi</td>
-                            <td class="warning">01/01/21</td>
-                            <td><a href="#">Wszystkie uwagi</a></td>
+                            <td class="green"><?php 
+                        require_once "connect.php";
+                        $sql="select count(rodzaj) from sprawdziany WHERE user_id=$_SESSION[user_id]";
+                        $wynik = $polaczenie->query($sql);
+                        if($wynik){
+                            $dane = $wynik->fetch_array();
+                            if($dane[0]>='1'){echo "Tak";}
+                            else{echo "Brak";}
+                        };
+                        ?></td>
+                            <td><a href="../PHP-test/sprawdziany.php">Zaplanowane Pracy</a></td>
                         </tr>
                     </table>
                 </div>
@@ -130,8 +152,21 @@
                 <div class="infoRow__item" style="margin-left: 50px;">
                     <h3>Najnowsze Ogłoszenie</h3>
                     <div class="ogloszenie">
-                        <p class="tytul">Komunikat</p>
-                        <p class="tresc">Dzień dobry, Szanowni Rodzice Uczniowie w wieku 7 lat lub starsi jeżdżą za darmo w gdyńskich autobusach i trolejbusach, jeżeli mieszkają w Gdyni i posiadają poświadczający to dokument. Jeżeli uczeń używa legitymacji szkolnej, prosimy o sprawdzenie, czy jest tam wpisany gdyński adres zamieszkania! Jeśli nie ma informacji o adresie, potrzebny jest dodatkowy dokument! Może to być pisemne zaświadczenie ze szkoły lub Karta Mieszkańca. WAŻNA INFORMACJA: Jeżeli uczeń posiada Kartę Mieszkańca, należy pamiętać o przedłużeniu uprawnień do bezpłatnych przejazdów do 30 września w gdyńskim InfoBoksie (przy ul. Świętojańskiej 30 od poniedziałku do piątku w godz. 8.00-18.00). Aby to zrobić, potrzebna będzie aktualna legitymacja szkolna + zaświadczenie o adresie zamieszkania jeśli nie ma takiej adnotacji w legitymacji. Dzięki posiadaniu Karty Mieszkańca, legitymacja szkolna nie będzie już potrzebna w pojazdach ZKM. Szczegółowe informacje na temat bezpłatnych przejazdów dla gdyńskich dzieci i młodzieży znajdują się na stronie zkmgdynia.pl</p>
+                        <?php 
+                        require_once "connect.php";
+                        $sql="select tytul,tresc from ogloszenia WHERE user_id=$_SESSION[user_id] ORDER BY dataOgloszenia DESC LIMIT 1";
+                        $wynik = $polaczenie->query($sql);
+                        if($wynik || mysqli_num_rows($wynik)!=0){
+                            $dane = $wynik->fetch_array();
+                            echo "<p class='tytul'>$dane[0]</p>
+                            <p class='tresc'>$dane[1]</p>";
+                        }
+                        else{
+                            echo "<p class='tytul'>Brak Ogloszen</p>";
+                        };
+                        ?>
+                        <!-- <p class="tytul">Komunikat</p>
+                        <p class="tresc">Dzień dobry, Szanowni Rodzice Uczniowie w wieku 7 lat lub starsi jeżdżą za darmo w gdyńskich autobusach i trolejbusach, jeżeli mieszkają w Gdyni i posiadają poświadczający to dokument. Jeżeli uczeń używa legitymacji szkolnej, prosimy o sprawdzenie, czy jest tam wpisany gdyński adres zamieszkania! Jeśli nie ma informacji o adresie, potrzebny jest dodatkowy dokument! Może to być pisemne zaświadczenie ze szkoły lub Karta Mieszkańca. WAŻNA INFORMACJA: Jeżeli uczeń posiada Kartę Mieszkańca, należy pamiętać o przedłużeniu uprawnień do bezpłatnych przejazdów do 30 września w gdyńskim InfoBoksie (przy ul. Świętojańskiej 30 od poniedziałku do piątku w godz. 8.00-18.00). Aby to zrobić, potrzebna będzie aktualna legitymacja szkolna + zaświadczenie o adresie zamieszkania jeśli nie ma takiej adnotacji w legitymacji. Dzięki posiadaniu Karty Mieszkańca, legitymacja szkolna nie będzie już potrzebna w pojazdach ZKM. Szczegółowe informacje na temat bezpłatnych przejazdów dla gdyńskich dzieci i młodzieży znajdują się na stronie zkmgdynia.pl</p> -->
                     </div>
                 </div>
             </div>

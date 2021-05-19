@@ -1,6 +1,5 @@
 var wykresObiekt = document.getElementById("wykresFrekfencja").getContext("2d");
 const uczenGodzinyData = [2,0,30];
-console.log(Math.max(uczenGodzinyData));
 Chart.defaults.font.size = 15;
 var wykresFrekfencja = new Chart(wykresObiekt,{
     type: 'bar',
