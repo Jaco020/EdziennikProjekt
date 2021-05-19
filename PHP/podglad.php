@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../CSS/mainCont.css">
     <link rel="stylesheet" href="../CSS/menuBaner.css">
     <link rel="stylesheet" href="../CSS/sideMenu.css">
-    <link rel="stylesheet" href="../CSS//podglad.css">
+    <link rel="stylesheet" href="../CSS/podglad.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
 </head>
@@ -70,7 +70,7 @@
                             <td>Data ostatniego spóźnienia</td>
                             <td class="green"><?php 
                         require_once "connect.php";
-                        $sql="select count(status) from frekfencja WHERE frekfencja.status='spoznienie' AND user_id=$_SESSION[user_id]";
+                        $sql="select count(status) from frekfencja WHERE frekfencja.status='spóźnienie' AND user_id=$_SESSION[user_id]";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
                             $dane = $wynik->fetch_array();
@@ -90,7 +90,7 @@
                             $dane = $wynik->fetch_array();
                             if($dane[0]>='1'){echo "Tak";}
                             else{echo "Brak";}
-                        };
+                        };  
                         ?></td>
                             <td><a href="../PHP-test/sprawdziany.php">Zaplanowane Pracy</a></td>
                         </tr>
@@ -172,16 +172,61 @@
             </div>
         </div>
     </div>
-    <script src="../JavaScript/wykres.js"></script>
+    <?php
+        require_once "connect.php";
+        $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
+        $wynik = $polaczenie->query($sql);
+        if($wynik){
+            $dane = $wynik->fetch_array();
+            $nieusprawiedliwione = $dane[0];
+        };
+        $sql="select count(status) from frekfencja WHERE frekfencja.status='Wniosek o Usprawieliwienie' AND user_id=$_SESSION[user_id]";
+        $wynik = $polaczenie->query($sql);
+        if($wynik){
+            $dane = $wynik->fetch_array();
+            $wnioskowane = $dane[0];
+        };
+        $sql="select count(status) from frekfencja WHERE frekfencja.status='Usprawiedliwione' AND user_id=$_SESSION[user_id]";
+        $wynik = $polaczenie->query($sql);
+        if($wynik){
+            $dane = $wynik->fetch_array();
+            $usprawiedliwione = $dane[0];
+        };
+        echo "$usprawiedliwione,$wnioskowane,$nieusprawiedliwione";
+    ?>
     <script>
-        var text = document.querySelector(".tresc"); // tresci ogloszenia
-        if(text.innerHTML.length >= 435){ // innerHTML = tekst
-            let textCut = text.innerHTML.substring(0,435); // redukcja tekstu
-            const lastSpace = textCut.lastIndexOf(" "); //indeks ostatniej spacji - aby nie urywac polowy wyrazu
-            text.innerHTML = textCut.substring(0,lastSpace); // utnij zadlugie ogloszenie
-            text.innerHTML+= "...";
-            document.querySelector(".ogloszenie").innerHTML+="<a href='ogloszenia.html'>Czytaj Wiecej</a>";
-        }
+        var wykresObiekt = document.getElementById("wykresFrekfencja").getContext("2d");
+        const uczenGodzinyData = [<?php echo $nieusprawiedliwione?>,<?php echo $wnioskowane?>,<?php echo $usprawiedliwione?>];
+        Chart.defaults.font.size = 15;
+        var wykresFrekfencja = new Chart(wykresObiekt,{
+            type: 'bar',
+            data: {
+                labels:["Nieobecności",["Wniosek", "o usprawiedliwienie"],"Usprawiedliwone"],
+                datasets: [{
+                    label:'Godziny',
+                    data:uczenGodzinyData,
+                    backgroundColor:"#2456e0"// --blue-500
+                }]
+            },
+            options:{
+                scales:{
+                    y:{
+                        max:Math.max(...uczenGodzinyData)+5,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                },
+                plugins:{
+                    legend:{
+                        display:false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- <script src="../JavaScript/wykres.js"></script> -->
+    <script src="../JavaScript/podglad.js">
     </script>   
 </body>
 </html>
