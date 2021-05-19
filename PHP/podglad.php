@@ -64,7 +64,7 @@
                             else{echo "Nie";}
                         };
                         ?></td>
-                            <td><a href="../PHP-test/frekfencja.php">Nieobecności ucznia</a></td>
+                            <td><a href="./frekfencja.php">Nieobecności ucznia</a></td>
                         </tr>
                         <tr>
                             <td>Data ostatniego spóźnienia</td>
@@ -78,7 +78,7 @@
                             else{echo "Brak";}
                         };
                         ?></td>
-                            <td><a href="../PHP-test/frekfencja.php">Spóźnienia ucznia</a></td>
+                            <td><a href="./frekfencja.php">Spóźnienia ucznia</a></td>
                         </tr>
                         <tr>
                             <td>Czy są zaplanowane Prace?</td>
@@ -92,7 +92,7 @@
                             else{echo "Brak";}
                         };  
                         ?></td>
-                            <td><a href="../PHP-test/sprawdziany.php">Zaplanowane Pracy</a></td>
+                            <td><a href="./sprawdziany.php">Zaplanowane Pracy</a></td>
                         </tr>
                     </table>
                 </div>

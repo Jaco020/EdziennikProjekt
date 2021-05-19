@@ -24,6 +24,7 @@ INSERT INTO sprawdziany (user_id,zajecia_id,rodzaj,temat,szczegoly,termin) VALUE
 (1,1,'Sprawdzian','Polska w XX wieku','Wagi 4','2021-05-24'),
 (2,1,'Sprawdzian','Polska w XX wieku','Wagi 4','2021-05-24'),
 (2,2,'kartkówka','Słownictwo','','2021-05-18');
+(1,2,'kartkówka','Dzial 8','','2021-05-26');
 
 5. Tablea frekfencja
 INSERT INTO frekfencja (user_id,zajecia_id,dataZajec,czasZajec,status,komentarz,tresc) VALUES
