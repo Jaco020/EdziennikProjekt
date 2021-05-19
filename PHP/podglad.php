@@ -36,11 +36,11 @@
     </navbar>
     <div class="sideMenu">
             <a class="sideMenu__item sideMenu__item--active" href="podglad.php"><i class="fas fa-home"></i>Podgląd wyników ucznia</a>
-            <a class="sideMenu__item" href="ocenyUcznia.php"><i class="fas fa-book-reader"></i>Oceny</a>
-            <a class="sideMenu__item" href="sprawdziany.php"><i class="fas fa-clipboard"></i>Sprawdziany</a>
-            <a class="sideMenu__item" href="frekfencja.php"><i class="fas fa-user-clock"></i>Frekfencja</a>
-            <a class="sideMenu__item " href="zachowanie.php"><i class="fas fa-user-check"></i>Zachowanie</a>
-            <a class="sideMenu__item" href="ogloszenia.php"><i class="fas fa-envelope"></i>Ogłoszenia</a>
+            <a class="sideMenu__item" href="./ocenyUcznia.php"><i class="fas fa-book-reader"></i>Oceny</a>
+            <a class="sideMenu__item" href="./sprawdziany.php"><i class="fas fa-clipboard"></i>Sprawdziany</a>
+            <a class="sideMenu__item" href="./frekfencja.php"><i class="fas fa-user-clock"></i>Frekfencja</a>
+            <a class="sideMenu__item " href="./zachowanie.php"><i class="fas fa-user-check"></i>Zachowanie</a>
+            <a class="sideMenu__item" href="./ogloszenia.php"><i class="fas fa-envelope"></i>Ogłoszenia</a>
         </div>
     <div class="mainCont">
         <div class="mainCont__header">

@@ -50,7 +50,7 @@
                 <div class="ogloszeniaCont">
                     <?php
                         require_once "connect.php";
-                        $sql="select tytul,tresc,dataOgloszenia from ogloszenia where user_id=$_SESSION[user_id]";
+                        $sql="select tytul,tresc,dataOgloszenia from ogloszenia where user_id=$_SESSION[user_id] order by dataOgloszenia DESC";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
                             while($row=$wynik->fetch_array()){

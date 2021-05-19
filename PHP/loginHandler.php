@@ -10,7 +10,7 @@
 
 	$sql="SELECT user_id,username,dataSystemu FROM uzytkownik WHERE login='$userlogin' AND password='$userpass';";
 	$wynik = $polaczenie->query($sql);
-	if(mysqli_num_rows($wynik)>0 || $wynik){
+	if(mysqli_num_rows($wynik)>0 && $wynik){
 		$daneBazy = $wynik->fetch_array(); //$daneBazy[0],=user_id$daneBazy[1] = username , $daneBazy[2] = data , 
 		mysqli_close($polaczenie);
 		header('Location: podglad.php');

@@ -58,7 +58,7 @@
                     </tr>
                     <?php
                         require_once "connect.php";
-                        $sql="select zajecia.zajeciaNazwa,rodzaj,temat,szczegoly,termin,zajecia.Nauczyciel from sprawdziany inner join zajecia on zajecia.zajecia_id=sprawdziany.zajecia_id where user_id=$_SESSION[user_id]";
+                        $sql="select zajecia.zajeciaNazwa,rodzaj,temat,szczegoly,termin,zajecia.Nauczyciel from sprawdziany inner join zajecia on zajecia.zajecia_id=sprawdziany.zajecia_id where user_id=$_SESSION[user_id] order by termin DESC";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
                             while($row=$wynik->fetch_array()){

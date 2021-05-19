@@ -59,7 +59,7 @@
                     </tr>
                     <?php
                         require_once "connect.php";
-                        $sql="select zajecia.zajeciaNazwa, ocenySemestr1,ocenyPrzewidywane1,ocenyOkresowe,ocenySemestr2,ocenyPrzewidywane2,ocenyKoncowe from oceny inner JOIN zajecia on zajecia.zajecia_id=oceny.zajecia_id where user_id=$_SESSION[user_id]";
+                        $sql="select zajecia.zajeciaNazwa, ocenySemestr1,ocenyPrzewidywane1,ocenyOkresowe,ocenySemestr2,ocenyPrzewidywane2,ocenyKoncowe from oceny inner JOIN zajecia on zajecia.zajecia_id=oceny.zajecia_id where user_id=$_SESSION[user_id] order by zajecia.zajeciaNazwa ASC";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
                             while($row=$wynik->fetch_array()){

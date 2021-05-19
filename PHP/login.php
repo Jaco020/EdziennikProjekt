@@ -18,6 +18,14 @@
     <link rel="shortcut icon" href="../IMG/logo.png" type="image/png">
     <link rel="stylesheet" href="../CSS/globals.css">
     <link rel="stylesheet" href="../CSS/login.css">
+    <style>
+    p.error{
+        font-size:2.2rem;
+        text-align:center;
+        color:#ec3333;
+        margin-top:30px;
+    }
+    </style>
 </head>
 <body>
     <div class="loginCont">
@@ -35,10 +43,10 @@
     <?php
         if (isset($_GET["error"])) {
             if ($_GET["error"] == "pusteDane"){
-                echo "<p class='error' style='color:red;text-align:center;font-size:2.5rem'>Nie uzupełniono wszystkich danych</p>";
+                echo "<p class='error'>Nie uzupełniono wszystkich danych</p>";
             }
-            else if ($_GET["error"] == "zleDane"){
-                echo "<p class='error' style='color:red;text-align:center;font-size:2.5rem>Login lub hasło jest nieprawidłowe</p>";
+            if ($_GET["error"] == "zleDane"){
+                echo "<p class='error'>Login lub hasło jest nieprawidłowe</p>";
             }
         };
     ?>

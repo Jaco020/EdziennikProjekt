@@ -78,7 +78,7 @@ create table ogloszenia(
     ogloszenia_id int AUTO_INCREMENT,
     user_id int,
     tytul varchar(50),
-    tresc varchar(80),
+    tresc text,
     dataOgloszenia DATETIME,
     foreign key(user_id) references uzytkownik(user_id),
     primary key(ogloszenia_id)
