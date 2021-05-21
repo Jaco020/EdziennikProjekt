@@ -59,19 +59,25 @@
                     </tr>
                     <?php
                         require_once "connect.php";
-                        $sql="select zajecia.zajeciaNazwa, ocenySemestr1,ocenyPrzewidywane1,ocenyOkresowe,ocenySemestr2,ocenyPrzewidywane2,ocenyKoncowe from oceny inner JOIN zajecia on zajecia.zajecia_id=oceny.zajecia_id where user_id=$_SESSION[user_id] order by zajecia.zajeciaNazwa ASC";
+                        $sql="select oceny_id,zajecia.zajeciaNazwa,ocenyPrzewidywane1,ocenyOkresowe,ocenyPrzewidywane2,ocenyKoncowe from oceny_all inner JOIN zajecia on zajecia.zajecia_id=oceny_all.zajecia_id where user_id=$_SESSION[user_id] order by zajecia.zajeciaNazwa ASC";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
                             while($row=$wynik->fetch_array()){
+                                $sql2="SELECT GROUP_CONCAT(ocenaNr) from oceny_szczegoly where oceny_id=$row[0] AND Semestr=1";
+                                $wynik2=$polaczenie->query($sql2);
+                                $oceny=$wynik2->fetch_array();
+                                $sql3="SELECT GROUP_CONCAT(ocenaNr) from oceny_szczegoly where oceny_id=$row[0] AND Semestr=2 ORDER BY 'dataOceny' desc ;";
+                                $wynik3=$polaczenie->query($sql3);
+                                $oceny2=$wynik3->fetch_array();
                                 echo "
-                                <tr>
-                                    <td class='SubjectName noneLeft'><a href='#'>$row[0]</a> </td>
-                                    <td>$row[1]</td>
+                                <tr class='noneBottom'>
+                                    <td class='SubjectName noneLeft'><a href='#'>$row[1]</a> </td>
+                                    <td>$oceny[0]</td>
                                     <td>$row[2]</td>
                                     <td>$row[3]</td>
+                                    <td>$oceny2[0]</td>
                                     <td>$row[4]</td>
-                                    <td>$row[5]</td>
-                                    <td class='noneRight'>$row[6]</td>
+                                    <td class='noneRight'>$row[5]</td>
                                 </tr>
                                 ";
                             }

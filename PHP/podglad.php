@@ -55,7 +55,7 @@
                         <tr>
                             <td>Czy są nieobecności nieusprawiedliwione</td>
                             <td class="warning"><?php 
-                        require_once "connect.php";
+                        require "connect.php";
                         $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
@@ -69,7 +69,6 @@
                         <tr>
                             <td>Data ostatniego spóźnienia</td>
                             <td class="green"><?php 
-                        require_once "connect.php";
                         $sql="select count(status) from frekfencja WHERE frekfencja.status='spóźnienie' AND user_id=$_SESSION[user_id]";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
@@ -83,7 +82,6 @@
                         <tr>
                             <td>Czy są zaplanowane Prace?</td>
                             <td class="green"><?php 
-                        require_once "connect.php";
                         $sql="select count(rodzaj) from sprawdziany WHERE user_id=$_SESSION[user_id]";
                         $wynik = $polaczenie->query($sql);
                         if($wynik){
@@ -112,48 +110,28 @@
                             <th>Data</th>
                             <th>Liczona</th>
                         </tr>
-                        <tr>
-                            <td>Informatyka</td>
-                            <td>5</td>
-                            <td>1</td>
-                            <td>28/04/21 10:21:06</td>
-                            <td>Tak</td>
-                        </tr>
-                        <tr>
-                            <td>Język niemiecki</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>27/04/21 12:43:45</td>
-                            <td>Tak</td>
-                        </tr>
-                        <tr>
-                            <td>Historia i społeczeństwo</td>
-                            <td>5</td>
-                            <td>2</td>
-                            <td>23/04/21 14:02:09</td>
-                            <td>Tak</td>
-                        </tr>
-                        <tr>
-                            <td>Aplikacje internetowe</td>
-                            <td>5</td>
-                            <td>1</td>
-                            <td>20/04/21 11:22:45</td>
-                            <td>Tak</td>
-                        </tr>
-                        <tr>
-                            <td>Język polski</td>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>19/04/21 11:22:45</td>
-                            <td>Tak</td>
-                        </tr>
+                        <?php
+                            $sql="select zajecia.zajeciaNazwa,oceny_szczegoly.ocenaNr ,oceny_szczegoly.waga,oceny_szczegoly.dataOceny,oceny_szczegoly.Liczona from oceny_all inner JOIN zajecia on zajecia.zajecia_id=oceny_all.zajecia_id INNER JOIN oceny_szczegoly on oceny_szczegoly.oceny_id=oceny_all.oceny_id where user_id=$_SESSION[user_id] order by oceny_szczegoly.dataOceny DESC LIMIT 5;";
+                            $wynik = $polaczenie->query($sql);
+                            if($wynik){
+                                while($row=$wynik->fetch_array()){
+                                    echo "
+                                    <tr class='noneBottom'>
+                                        <td>$row[0]</td>
+                                        <td>$row[1]</td>
+                                        <td>$row[2]</td>
+                                        <td>$row[3]</td>
+                                        <td>$row[4]</td>
+                                    </tr>";
+                                }
+                            }
+                        ?>
                     </table>
                 </div>
                 <div class="infoRow__item" style="margin-left: 50px;">
                     <h3>Najnowsze Ogłoszenie</h3>
                     <div class="ogloszenie">
                         <?php 
-                        require_once "connect.php";
                         $sql="select tytul,tresc from ogloszenia WHERE user_id=$_SESSION[user_id] ORDER BY dataOgloszenia DESC LIMIT 1";
                         $wynik = $polaczenie->query($sql);
                         if($wynik || mysqli_num_rows($wynik)!=0){
@@ -173,7 +151,6 @@
         </div>
     </div>
     <?php
-        require_once "connect.php";
         $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
         $wynik = $polaczenie->query($sql);
         if($wynik){
@@ -227,6 +204,10 @@
     </script>
     <!-- <script src="../JavaScript/wykres.js"></script> -->
     <script src="../JavaScript/podglad.js">
-    </script>   
+    </script>
+    <?php
+        exit();
+        $polaczenie->close();
+    ?>   
 </body>
 </html>

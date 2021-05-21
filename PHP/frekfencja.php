@@ -64,7 +64,7 @@
                         if($wynik){
                             while($row=$wynik->fetch_array()){
                                 echo "
-                                <tr>
+                                <tr class='noneBottom'>
                                     <td class='noneLeft'>$row[0]</td>
                                     <td>$row[1]</td>
                                     <td>$row[2]</td>
