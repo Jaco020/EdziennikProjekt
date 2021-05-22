@@ -2,15 +2,29 @@
 INSERT INTO uzytkownik (login, password, username, dataSystemu) VALUES 
 ('Jakub', 'qwerty','Jakub Selonke','2021-05-06 08:53:22'),
 ('Bartek', 'pass0','Bartosz Rożyk','2021-05-06 08:53:22' );
+
 INSERT INTO zajecia (zajeciaNazwa,nauczyciel) VALUES
 ('Historia i Społeczeństwo','Monika Ebertowska'),
 ('Angielski','Teresa Guzek'),
-('Matematyka','Wiolleta Pisała');
+('Matematyka','Wiolleta Pisała'),
+('Aplikacje Internetowe','Marek Wesołowski'),
+('Systemy Operacyjne','Eugeniusz Kasperkowiak'),
+('Język Niemiecki','Monika Formańska-Żadkowska'),
+('Statyczne Witryny Internetowe','Jeremi Horodeński'),
+('Język Polski','Dawid Ladach'),
+('Bazy Danych','Krystyna Kasperkowiak');
+
 INSERT INTO oceny_all (user_id,zajecia_id, ocenyPrzewidywane1, ocenyOkresowe,ocenyPrzewidywane2,ocenyKoncowe) VALUES 
 (1,1,'4','4','5-','5'),
 (1,2,'4','4','5','5'),
 (2,1, '3+','3','4','4'),
-(2,3,'5-','5','5-','5');
+(2,3,'5-','5','5-','5'),
+(1,3,'','','',''),
+(1,4,'','','',''),
+(2,5,'','','',''),
+(2,6,'','','',''),
+(2,7,'','','','');
+
 INSERT INTO oceny_szczegoly (oceny_id, ocenaNr, waga,dataOceny,Liczona,Semestr) VALUES 
 -- Historia i Społeczeństwo uczen Jakub
 (1,'3','2','2020-10-07 12:36:36','Tak',1),
@@ -46,15 +60,32 @@ INSERT INTO sprawdziany (user_id,zajecia_id,rodzaj,temat,szczegoly,termin) VALUE
 (1,1,'Sprawdzian','Polska w XX wieku','Wagi 4','2021-05-24'),
 (2,1,'Sprawdzian','Polska w XX wieku','Wagi 4','2021-05-24'),
 (2,2,'kartkówka','Słownictwo','','2021-05-18'),
-(1,2,'kartkówka','Dzial 8','','2021-05-26');
+(1,2,'kartkówka','Dzial 8','','2021-05-26'),
+(1,3,'kartkówka','Trygonometria','','2021-05-28'),
+(2,4,'kartkówka','Ajax','','2021-05-24'),
+(1,5,'kartkówka','Server backup','','2021-05-30'),
+(2,6,'kartkówka','Kuchnia-słownictwo','','2021-06-1'),
+(1,7,'Sprawdzian','JS-podstawy','Wagi 4','2021-06-3'),
+(2,8,'Sprawdzian','Lalka-sprawdzian','Wagi 5','2021-06-2'),
+(1,9,'Sprawdzian','SSMS - backup bazy','Wagi 4','2021-05-24');
+
 INSERT INTO frekfencja (user_id,zajecia_id,dataZajec,czasZajec,status,komentarz,tresc) VALUES
 (1,1,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
-(1,2,'2021-05-15','11:50-12:35','spoznienie','10 minut po',''),
+(1,2,'2021-05-15','11:50-12:35','spóźnienie','10 minut po',''),
 (1,3,'2021-05-12','11:50-12:35','Nieusprawiedliwione','Ucieczka z lekcji',''),
-(2,2,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza');
+(2,2,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
+
+(1,2,'2021-05-12','11:50-12:35','Wniosek o Usprawieliwienie','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu jego obecności na pogrzebie'),
+(2,2,'2021-05-12','12:45-13:30','Nieusprawiedliwione','','Proszę o usprawiedliwienie :)'),
+(2,2,'2021-05-12','8:00-8:45','Nieusprawiedliwione','','Proszę usprawiedliwić'),
+(2,2,'2021-05-12','10:45-11:30','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności z powodu wizyty u dentysty'),
+(1,2,'2021-05-12','14:35-15:20','spóźnienie','Uczeń pojawił się 5 minut przed końcem zajęć',''),
+(2,2,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę usprawiedliwić, syn był potrzebny przy przeprowadzce');
+
 INSERT INTO zachowanie (user_id,ocenaPrzewidywana1,ocenaOkresowa,ocenaPrzewidywana2,ocenaKoncowa) VALUES
 (1,'Bardzo Dobry','	Bardzo Dobry','Celujący','Celujący'),
 (2,'Dobry','Dobry','Dobry','Bardzo Dobry');
+
 INSERT INTO ogloszenia (user_id,tytul,tresc,dataOgloszenia) VALUES
 (1,'OGŁOSZENIE','Szanowni Państwo, Gdyńskie Centrum Zdrowia zaprasza rodziców/ opiekunów prawnych do wypełnienia kwestionariusza wstępnej oceny kondycji zdrowotnej dziecka dostępnej pod adresem: https://zdrowie.gdynia.pl/ankieta-kzd/ . Odpowiadając na pytania z ankiety otrzymają Państwo krótkie porady i wskazówki dotyczące różnych obszarów rozwoju dziecka oraz informacje na temat oferty Gminy Miasta Gdyni w zakresie zdrowia skierowanej do dzieci. Ankieta jest anonimowa, a gromadzone dane statystyczne pozwolą ulepszyć i poszerzyć ofertę działań skierowanych do młodych Gdynian. Dodatkowo kwestionariusz ankiety jest także narzędziem rekrutacyjnym do kolejnej edycji programu polityki zdrowotnej pn. „Program polityki zdrowotnej w zakresie profilaktyki i leczenia nadwagi i otyłości w populacji młodzieży w Gminie Miasta Gdyni. Kontynuacja na lata 2020 – 2021.”, której rozpoczęcie planowane jest w listopadzie br. Więcej informacji na temat obecnej, kończącej się już edycji programu znajdą Państwo tutaj: https://gcz.gdynia.pl/programy-i-projekty/gdynski-zdrowy-uczen/program-polityki-zdrowotnej-w-zakresie-profilaktyki-i-leczenia-nadwagi-i-otylosci-w-populacji-mlodziezy-w-gminie-miasta-gdyni/ Zachęcamy do wypełnienia ankiety','2021-05-06 08:53:22'),
 (2,'KOMUNIKAT','E-dziennik jest już do pobrania w aplikacji Gdynia.pl. Od dziś łatwiej będzie zarówno o zachowanie kontaktu z placówką, zgłoszenie nieobecności, jak i sprawdzenie ocen. Wszystkie funkcje e-dziennika z Konta Mieszkańca mogą od teraz być dostępne na Państwa smartfonach.','2020-10-06 14:03:13'),

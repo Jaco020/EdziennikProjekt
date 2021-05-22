@@ -75,9 +75,9 @@ footer{
 }
 @media screen and (min-width:1500px){
     .loginCont{
-        width: 800px;
+        width: 700px;
     }
     :root{
-        font-size: 16px;
+        font-size: 14px;
     }
 }

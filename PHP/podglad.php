@@ -53,43 +53,45 @@
                     <h3>Podstawowe informacje</h3>
                     <table>
                         <tr>
-                            <td>Czy są nieobecności nieusprawiedliwione</td>
-                            <td class="warning"><?php 
-                        require "connect.php";
-                        $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
-                        $wynik = $polaczenie->query($sql);
-                        if($wynik){
-                            $dane = $wynik->fetch_array();
-                            if($dane[0]=='1'){echo "Tak";}
-                            else{echo "Nie";}
-                        };
-                        ?></td>
+                            <?php 
+                                require "connect.php";
+                                $sql="select count(status) from frekfencja WHERE frekfencja.status='Nieusprawiedliwione' AND user_id=$_SESSION[user_id]";
+                                $wynik = $polaczenie->query($sql);
+                                if($wynik){$dane = $wynik->fetch_array();};
+                            ?>
+                            <td>Czy są nieobecności nieusprawiedliwione?</td>
+                            <td class="<?php echo ($dane[0]>=1) ? 'warning' : 'green';?>">
+                            <?php echo ($dane[0]>=1) ? 'Tak' : 'Nie';?></td>
                             <td><a href="./frekfencja.php">Nieobecności ucznia</a></td>
                         </tr>
                         <tr>
+                            <?php 
+                                $sql="select count(status) from frekfencja WHERE frekfencja.status='spóźnienie' AND user_id=$_SESSION[user_id]";
+                                $wynik = $polaczenie->query($sql);
+                                if($wynik){$dane = $wynik->fetch_array();};
+                            ?>
                             <td>Data ostatniego spóźnienia</td>
-                            <td class="green"><?php 
-                        $sql="select count(status) from frekfencja WHERE frekfencja.status='spóźnienie' AND user_id=$_SESSION[user_id]";
-                        $wynik = $polaczenie->query($sql);
-                        if($wynik){
-                            $dane = $wynik->fetch_array();
-                            if($dane[0]=='1'){echo "Tak";}
-                            else{echo "Brak";}
-                        };
-                        ?></td>
+                            <td class="<?php echo ($dane[0]>=1) ? 'warning' : 'green';?>">
+                            <?php
+                            if($dane[0]>=1){
+                                $sql="select dataZajec from frekfencja WHERE frekfencja.status='spóźnienie' AND user_id=$_SESSION[user_id] order by dataZajec desc LIMIT 1";
+                                $wynik = $polaczenie->query($sql);
+                                $dane = $wynik->fetch_array();
+                                echo "$dane[0]";
+                            }else{echo"Brak";}
+                            ?>
+                            </td>
                             <td><a href="./frekfencja.php">Spóźnienia ucznia</a></td>
                         </tr>
                         <tr>
+                            <?php 
+                                $sql="select count(rodzaj) from sprawdziany WHERE user_id=$_SESSION[user_id]";
+                                $wynik = $polaczenie->query($sql);
+                                if($wynik){$dane = $wynik->fetch_array();};  
+                            ?>
                             <td>Czy są zaplanowane Prace?</td>
-                            <td class="green"><?php 
-                        $sql="select count(rodzaj) from sprawdziany WHERE user_id=$_SESSION[user_id]";
-                        $wynik = $polaczenie->query($sql);
-                        if($wynik){
-                            $dane = $wynik->fetch_array();
-                            if($dane[0]>='1'){echo "Tak";}
-                            else{echo "Brak";}
-                        };  
-                        ?></td>
+                            <td class="<?php echo ($dane[0]>=1) ? 'warning' : 'green';?>">
+                            <?php echo ($dane[0]>=1) ? 'Tak' : 'Brak';?></td>
                             <td><a href="./sprawdziany.php">Zaplanowane Pracy</a></td>
                         </tr>
                     </table>
@@ -143,8 +145,6 @@
                             echo "<p class='tytul'>Brak Ogloszen</p>";
                         };
                         ?>
-                        <!-- <p class="tytul">Komunikat</p>
-                        <p class="tresc">Dzień dobry, Szanowni Rodzice Uczniowie w wieku 7 lat lub starsi jeżdżą za darmo w gdyńskich autobusach i trolejbusach, jeżeli mieszkają w Gdyni i posiadają poświadczający to dokument. Jeżeli uczeń używa legitymacji szkolnej, prosimy o sprawdzenie, czy jest tam wpisany gdyński adres zamieszkania! Jeśli nie ma informacji o adresie, potrzebny jest dodatkowy dokument! Może to być pisemne zaświadczenie ze szkoły lub Karta Mieszkańca. WAŻNA INFORMACJA: Jeżeli uczeń posiada Kartę Mieszkańca, należy pamiętać o przedłużeniu uprawnień do bezpłatnych przejazdów do 30 września w gdyńskim InfoBoksie (przy ul. Świętojańskiej 30 od poniedziałku do piątku w godz. 8.00-18.00). Aby to zrobić, potrzebna będzie aktualna legitymacja szkolna + zaświadczenie o adresie zamieszkania jeśli nie ma takiej adnotacji w legitymacji. Dzięki posiadaniu Karty Mieszkańca, legitymacja szkolna nie będzie już potrzebna w pojazdach ZKM. Szczegółowe informacje na temat bezpłatnych przejazdów dla gdyńskich dzieci i młodzieży znajdują się na stronie zkmgdynia.pl</p> -->
                     </div>
                 </div>
             </div>
