@@ -92,7 +92,7 @@
                             <td>Czy są zaplanowane Prace?</td>
                             <td class="<?php echo ($dane[0]>=1) ? 'warning' : 'green';?>">
                             <?php echo ($dane[0]>=1) ? 'Tak' : 'Brak';?></td>
-                            <td><a href="./sprawdziany.php">Zaplanowane Pracy</a></td>
+                            <td><a href="./sprawdziany.php">Zaplanowane Prace</a></td>
                         </tr>
                     </table>
                 </div>
