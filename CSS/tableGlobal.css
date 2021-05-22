@@ -11,6 +11,9 @@ td,th{
 th{
     background-color: var(--gray-200);
 }
+th.sort_th{
+    cursor: pointer;
+}
 /* Długość komurek */
 .longCell{
     width: 20%;

@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="../CSS/mainCont.css">
     <link rel="stylesheet" href="../CSS/tableGlobal.css">
     <link rel="stylesheet" href="../CSS/sideMenu.css">
+    
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JavaScript/sort.js"></script>
+
 </head>
 <body>
         <navbar class="menuBaner">
@@ -50,13 +54,14 @@
                 <table>
                     <tr>
                         <th class="noneLeft">Zajęcia</th>
-                        <th>Data zajęć</th>
+                        <th class='sort_th'>Data zajęć <i class="fas fa-sort"></i></th>
                         <th>Czas zajęć</th>
                         <th>Status</th>
                         <th>Komentarz</th>
                         <th>Treść usprawiedliwienia</th>
                         <th class="noneRight">Akcja</th>
                     </tr>
+                    <tbody>
                     <?php
                         require_once "connect.php";
                         $sql="select zajecia.zajeciaNazwa,dataZajec,czasZajec,status,komentarz,tresc from frekfencja inner join zajecia on zajecia.zajecia_id=frekfencja.zajecia_id where user_id=$_SESSION[user_id] order by dataZajec DESC";
@@ -79,18 +84,11 @@
                         exit();
                         $polaczenie->close();
                     ?>
-                    <!-- <tr>
-                        <td class="noneLeft">Aplikacje</td>
-                        <td>04.10.2021</td>
-                        <td>10:45-11:30</td>
-                        <td>Wnioskowanie o usprawiedliwienie</td>
-                        <td></td>
-                        <td>Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza</td>
-                        <td class="noneRight"><a href="#">Usprawiedliwienie</a></td>
-                    </tr> -->
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="../JavaScript/sort.js"></script>
 </body>
 </html>

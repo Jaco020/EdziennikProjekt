@@ -85,16 +85,6 @@
                         exit();
                         $polaczenie->close();
                     ?>
-                    <!-- <tr>
-                        <td class="SubjectName noneLeft"><a href="#">Aplikacje internetowe</a> </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="noneRight"></td>
-                    </tr>
-                    <tr> -->
                 </table>
             </div>
         </div>

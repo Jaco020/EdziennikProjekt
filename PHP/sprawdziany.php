@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="../CSS/mainCont.css">
     <link rel="stylesheet" href="../CSS/tableGlobal.css">
     <link rel="stylesheet" href="../CSS/sideMenu.css">
+
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JavaScript/sort.js"></script>
+
 </head>
 <body>
         <navbar class="menuBaner">
@@ -53,9 +57,10 @@
                         <th>Rodzaj</th>
                         <th>Temat</th>
                         <th>Sczegóły</th>
-                        <th>Termin</th>
+                        <th class='sort_th'>Termin <i class="fas fa-sort"></i></th>
                         <th class="noneRight">Nauczyciel</th>
                     </tr>
+                    <tbody>
                     <?php
                         require_once "connect.php";
                         $sql="select zajecia.zajeciaNazwa,rodzaj,temat,szczegoly,termin,zajecia.Nauczyciel from sprawdziany inner join zajecia on zajecia.zajecia_id=sprawdziany.zajecia_id where user_id=$_SESSION[user_id] order by termin DESC";
@@ -77,30 +82,7 @@
                         exit();
                         $polaczenie->close();
                     ?>
-                    <!-- <tr class="noneBottom">
-                        <td class="noneLeft" >Bazy Danych</td>
-                        <td>Kartkówka</td>
-                        <td>Relacje Baz danych</td>
-                        <td></td>
-                        <td>12.05.2021</td>
-                        <td class="noneRight">Krystyna Kasperkowiak</td>
-                    </tr>
-                    <tr>
-                        <td class="noneLeft" >Matematyka</td>
-                        <td>Sprawdzian</td>
-                        <td>Dział 8</td>
-                        <td></td>
-                        <td>11.05.2021</td>
-                        <td class="noneRight">Wiolleta Pisała</td>
-                    </tr>
-                    <tr class="noneBottom">
-                        <td class="noneLeft" >Jezyk Polski</td>
-                        <td>Sprawdzian</td>
-                        <td>Podsumowanie wiadomośći z Przedwiośnia</td>
-                        <td>Wagi 3</td>
-                        <td>10.05.2021</td>
-                        <td class="noneRight">Dawid Ladach</td>
-                    </tr>  -->
+                    </tbody>
                 </table>
             </div>
         </div>
