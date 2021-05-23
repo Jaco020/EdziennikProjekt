@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 21 Maj 2021, 19:32
+-- Czas generowania: 23 Maj 2021, 12:14
 -- Wersja serwera: 10.1.30-MariaDB
 -- Wersja PHP: 7.2.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `edziennik3`
+-- Baza danych: `edziennik`
 --
 
 -- --------------------------------------------------------
@@ -44,10 +44,16 @@ CREATE TABLE `frekfencja` (
 --
 
 INSERT INTO `frekfencja` (`frekfencja_id`, `user_id`, `zajecia_id`, `dataZajec`, `czasZajec`, `status`, `komentarz`, `tresc`) VALUES
-(1, 1, 1, '2021-05-12', '11:50-12:35', 'Usprawiedliwione', '', 'Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
-(2, 1, 2, '2021-05-15', '11:50-12:35', 'spoznienie', '10 minut po', ''),
-(3, 1, 3, '2021-05-12', '11:50-12:35', 'Nieusprawiedliwione', 'Ucieczka z lekcji', ''),
-(4, 2, 2, '2021-05-12', '11:50-12:35', 'Usprawiedliwione', '', 'Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza');
+(1, 1, 1, '2021-05-13', '11:50-12:35', 'Usprawiedliwione', '', 'Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
+(2, 1, 2, '2021-05-15', '11:50-12:35', 'spóźnienie', '10 minut po', ''),
+(3, 1, 3, '2021-05-14', '11:50-12:35', 'Nieusprawiedliwione', 'Ucieczka z lekcji', ''),
+(4, 2, 2, '2021-05-09', '11:50-12:35', 'Usprawiedliwione', '', 'Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
+(5, 1, 2, '2021-05-11', '11:50-12:35', 'Wniosek o Usprawieliwienie', '', 'Proszę o usprawiedliwienie nieobecności mojego syna z powodu jego obecności na pogrzebie'),
+(6, 2, 2, '2021-05-17', '12:45-13:30', 'Nieusprawiedliwione', '', 'Proszę o usprawiedliwienie :)'),
+(7, 2, 2, '2021-05-21', '8:00-8:45', 'Nieusprawiedliwione', '', 'Proszę usprawiedliwić'),
+(8, 2, 2, '2021-05-18', '10:45-11:30', 'Usprawiedliwione', '', 'Proszę o usprawiedliwienie nieobecności z powodu wizyty u dentysty'),
+(9, 1, 2, '2021-05-19', '14:35-15:20', 'spóźnienie', 'Uczeń pojawił się 5 minut przed końcem zajęć', ''),
+(10, 2, 2, '2021-05-14', '11:50-12:35', 'Usprawiedliwione', '', 'Proszę usprawiedliwić, syn był potrzebny przy przeprowadzce');
 
 -- --------------------------------------------------------
 
@@ -73,7 +79,12 @@ INSERT INTO `oceny_all` (`oceny_id`, `user_id`, `zajecia_id`, `ocenyPrzewidywane
 (1, 1, 1, '4', '4', '5-', '5'),
 (2, 1, 2, '4', '4', '5', '5'),
 (3, 2, 1, '3+', '3', '4', '4'),
-(4, 2, 3, '5-', '5', '5-', '5');
+(4, 2, 3, '5-', '5', '5-', '5'),
+(5, 1, 3, '2', '2', '3', ''),
+(6, 1, 4, '4', '4', '5', ''),
+(7, 2, 5, '4', '4', '4', ''),
+(8, 2, 6, '4-', '3+', '4+', ''),
+(9, 2, 7, '5+', '5+', '6', '');
 
 -- --------------------------------------------------------
 
@@ -121,7 +132,37 @@ INSERT INTO `oceny_szczegoly` (`ocena1_id`, `oceny_id`, `ocenaNr`, `waga`, `data
 (23, 4, '5', 4, '2021-03-03 18:46:36', 'Tak', 2),
 (24, 4, '5-', 3, '2021-04-07 11:56:36', 'Tak', 2),
 (25, 4, '5+', 1, '2021-05-07 13:36:36', 'Tak', 2),
-(26, 4, '5', 1, '2021-05-21 13:36:36', 'Nie', 2);
+(26, 4, '5', 1, '2021-05-21 13:36:36', 'Nie', 2),
+(27, 5, '4+', 1, '2020-10-07 18:48:56', 'Tak', 1),
+(28, 5, '2', 1, '2020-11-16 19:26:21', 'Tak', 1),
+(29, 5, '1', 3, '2021-01-09 12:16:32', 'Tak', 1),
+(30, 5, '4-', 4, '2021-03-03 21:46:36', 'Tak', 2),
+(31, 5, '2+', 3, '2021-04-07 01:56:16', 'Tak', 2),
+(32, 5, '3', 1, '2021-05-07 23:36:46', 'Tak', 2),
+(33, 6, '5', 1, '2020-10-04 18:45:36', 'Tak', 1),
+(34, 6, '4', 1, '2020-11-02 09:26:36', 'Tak', 1),
+(35, 6, '4', 3, '2021-01-11 22:16:16', 'Tak', 1),
+(36, 6, '5', 4, '2021-03-03 22:46:16', 'Tak', 2),
+(37, 6, '5-', 3, '2021-04-07 09:56:36', 'Tak', 2),
+(38, 6, '5+', 1, '2021-05-07 08:36:36', 'Tak', 2),
+(39, 7, '4+', 1, '2020-10-07 18:48:56', 'Tak', 1),
+(40, 7, '3', 1, '2020-11-16 19:26:21', 'Tak', 1),
+(41, 7, '4', 3, '2021-01-09 12:16:32', 'Tak', 1),
+(42, 7, '4-', 4, '2021-03-03 21:46:36', 'Tak', 2),
+(43, 7, '4+', 3, '2021-04-07 01:56:16', 'Tak', 2),
+(44, 7, '3', 1, '2021-05-07 23:36:46', 'Tak', 2),
+(45, 8, '2', 1, '2020-10-04 18:45:36', 'Tak', 1),
+(46, 8, '3', 1, '2020-11-02 09:26:36', 'Tak', 1),
+(47, 8, '5', 3, '2021-01-11 22:16:16', 'Tak', 1),
+(48, 8, '3', 4, '2021-03-03 22:46:16', 'Tak', 2),
+(49, 8, '5-', 3, '2021-04-07 09:56:36', 'Tak', 2),
+(50, 8, '5+', 1, '2021-05-07 08:36:36', 'Tak', 2),
+(51, 9, '4', 1, '2020-10-04 18:45:36', 'Tak', 1),
+(52, 9, '4', 1, '2020-11-02 09:26:36', 'Tak', 1),
+(53, 9, '6', 3, '2021-01-11 22:16:16', 'Tak', 1),
+(54, 9, '6', 4, '2021-03-03 22:46:16', 'Tak', 2),
+(55, 9, '6-', 3, '2021-04-07 09:56:36', 'Tak', 2),
+(56, 9, '6', 1, '2021-05-07 08:36:36', 'Tak', 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +186,7 @@ INSERT INTO `ogloszenia` (`ogloszenia_id`, `user_id`, `tytul`, `tresc`, `dataOgl
 (1, 1, 'OGŁOSZENIE', 'Szanowni Państwo, Gdyńskie Centrum Zdrowia zaprasza rodziców/ opiekunów prawnych do wypełnienia kwestionariusza wstępnej oceny kondycji zdrowotnej dziecka dostępnej pod adresem: https://zdrowie.gdynia.pl/ankieta-kzd/ . Odpowiadając na pytania z ankiety otrzymają Państwo krótkie porady i wskazówki dotyczące różnych obszarów rozwoju dziecka oraz informacje na temat oferty Gminy Miasta Gdyni w zakresie zdrowia skierowanej do dzieci. Ankieta jest anonimowa, a gromadzone dane statystyczne pozwolą ulepszyć i poszerzyć ofertę działań skierowanych do młodych Gdynian. Dodatkowo kwestionariusz ankiety jest także narzędziem rekrutacyjnym do kolejnej edycji programu polityki zdrowotnej pn. „Program polityki zdrowotnej w zakresie profilaktyki i leczenia nadwagi i otyłości w populacji młodzieży w Gminie Miasta Gdyni. Kontynuacja na lata 2020 – 2021.”, której rozpoczęcie planowane jest w listopadzie br. Więcej informacji na temat obecnej, kończącej się już edycji programu znajdą Państwo tutaj: https://gcz.gdynia.pl/programy-i-projekty/gdynski-zdrowy-uczen/program-polityki-zdrowotnej-w-zakresie-profilaktyki-i-leczenia-nadwagi-i-otylosci-w-populacji-mlodziezy-w-gminie-miasta-gdyni/ Zachęcamy do wypełnienia ankiety', '2021-05-06 08:53:22'),
 (2, 2, 'KOMUNIKAT', 'E-dziennik jest już do pobrania w aplikacji Gdynia.pl. Od dziś łatwiej będzie zarówno o zachowanie kontaktu z placówką, zgłoszenie nieobecności, jak i sprawdzenie ocen. Wszystkie funkcje e-dziennika z Konta Mieszkańca mogą od teraz być dostępne na Państwa smartfonach.', '2020-10-06 14:03:13'),
 (3, 1, 'KOMUNIKAT', 'Dzień dobry, Szanowni Rodzice Uczniowie w wieku 7 lat lub starsi jeżdżą za darmo w gdyńskich autobusach i trolejbusach, jeżeli mieszkają w Gdyni i posiadają poświadczający to dokument. Jeżeli uczeń używa legitymacji szkolnej, prosimy o sprawdzenie, czy jest tam wpisany gdyński adres zamieszkania! Jeśli nie ma informacji o adresie, potrzebny jest dodatkowy dokument! Może to być pisemne zaświadczenie ze szkoły lub Karta Mieszkańca. WAŻNA INFORMACJA: Jeżeli uczeń posiada Kartę Mieszkańca, należy pamiętać o przedłużeniu uprawnień do bezpłatnych przejazdów do 30 września w gdyńskim InfoBoksie (przy ul. Świętojańskiej 30 od poniedziałku do piątku w godz. 8.00-18.00). Aby to zrobić, potrzebna będzie aktualna legitymacja szkolna + zaświadczenie o adresie zamieszkania jeśli nie ma takiej adnotacji w legitymacji. Dzięki posiadaniu Karty Mieszkańca, legitymacja szkolna nie będzie już potrzebna w pojazdach ZKM. Szczegółowe informacje na temat bezpłatnych przejazdów dla gdyńskich dzieci i młodzieży znajdują się na stronie zkmgdynia.pl', '2020-09-09 13:45:28'),
-(4, 2, 'KOMUNIKAT', 'Gdyńskie Centrum Zdrowia zaprasza rodziców bądź opiekunów prawnych dziewczynek mieszkających lub zameldowanych na terenie Gdyni i urodzonych w roku 2006 lub 2007, do zarejestrowania ich do programu szczepień ochronnych przeciwko wirusowi brodawczaka ludzkiego HPV. Szczepienia ochronne przeciwko HPV to bezpieczna i skuteczna forma profilaktyki nowotworowej. Wirus HPV jest najczęstszą przyczyną raka szyjki macicy, może również prowadzić do rozwoju raka odbytu, sromu, pochwy, języka lub gardła. Zgłoszeń na szczepienia można dokonywać poprzez formularz rejestracyjny dostępny na stronie internetowej www.zdrowie.gdynia.pl/hpv (przycisk „Zgłoś do programu\"). Po prawidłowym dokonaniu zgłoszenia zachęcamy do kontaktu bezpośrednio z przychodnią dziecka realizującą szczepienie w celu umówienia dogodnego terminu wizyty szczepiennej, jeszcze przed wzrostem częstości infekcji w okresie jesienno-zimowym. Więcej informacji na stronie: https://gcz.gdynia.pl/aktualnosci/2020/08/gdynia-ponownie-uruchomia-zapisy-do-programu-szczepien-ochronnych-przeciwko-hpv-dla-gdynskich-dziewczynek/ Szczepienia wykonywane są w ramach programu polityki zdrowotnej: „Program profilaktyki zakażeń wirusami brodawczaka ludzkiego (HPV) na terenie Gminy Miasta Gdyni na lata 2018 – 2020\", realizowanego w całości ze środków miasta Gdyni.', '2020-09-07 14:28:24');
+(4, 2, 'KOMUNIKAT', 'Gdyńskie Centrum Zdrowia zaprasza rodziców bądź opiekunów prawnych dziewczynek mieszkających lub zameldowanych na terenie Gdyni i urodzonych w roku 2006 lub 2007, do zarejestrowania ich do programu szczepień ochronnych przeciwko wirusowi brodawczaka ludzkiego HPV. Szczepienia ochronne przeciwko HPV to bezpieczna i skuteczna forma profilaktyki nowotworowej. Wirus HPV jest najczęstszą przyczyną raka szyjki macicy, może również prowadzić do rozwoju raka odbytu, sromu, pochwy, języka lub gardła. Zgłoszeń na szczepienia można dokonywać poprzez formularz rejestracyjny dostępny na stronie internetowej www.zdrowie.gdynia.pl/hpv (przycisk Zgłoś do programu). Po prawidłowym dokonaniu zgłoszenia zachęcamy do kontaktu bezpośrednio z przychodnią dziecka realizującą szczepienie w celu umówienia dogodnego terminu wizyty szczepiennej, jeszcze przed wzrostem częstości infekcji w okresie jesienno-zimowym. Więcej informacji na stronie: https://gcz.gdynia.pl/aktualnosci/2020/08/gdynia-ponownie-uruchomia-zapisy-do-programu-szczepien-ochronnych-przeciwko-hpv-dla-gdynskich-dziewczynek/ Szczepienia wykonywane są w ramach programu polityki zdrowotnej: Program profilaktyki zakażeń wirusami brodawczaka ludzkiego (HPV) na terenie Gminy Miasta Gdyni na lata 2018 – 2020, realizowanego w całości ze środków miasta Gdyni.', '2020-09-07 14:28:24');
 
 -- --------------------------------------------------------
 
@@ -171,7 +212,14 @@ INSERT INTO `sprawdziany` (`sprawdziany_id`, `user_id`, `zajecia_id`, `rodzaj`, 
 (1, 1, 1, 'Sprawdzian', 'Polska w XX wieku', 'Wagi 4', '2021-05-24'),
 (2, 2, 1, 'Sprawdzian', 'Polska w XX wieku', 'Wagi 4', '2021-05-24'),
 (3, 2, 2, 'kartkówka', 'Słownictwo', '', '2021-05-18'),
-(4, 1, 2, 'kartkówka', 'Dzial 8', '', '2021-05-26');
+(4, 1, 2, 'kartkówka', 'Dzial 8', '', '2021-05-26'),
+(5, 1, 3, 'kartkówka', 'Trygonometria', '', '2021-05-28'),
+(6, 2, 4, 'kartkówka', 'Ajax', '', '2021-05-24'),
+(7, 1, 5, 'kartkówka', 'Server backup', '', '2021-05-30'),
+(8, 2, 6, 'kartkówka', 'Kuchnia-słownictwo', '', '2021-06-01'),
+(9, 1, 7, 'Sprawdzian', 'JS-podstawy', 'Wagi 4', '2021-06-03'),
+(10, 2, 8, 'Sprawdzian', 'Lalka-sprawdzian', 'Wagi 5', '2021-06-02'),
+(11, 1, 9, 'Sprawdzian', 'SSMS - backup bazy', 'Wagi 4', '2021-05-24');
 
 -- --------------------------------------------------------
 
@@ -192,8 +240,8 @@ CREATE TABLE `uzytkownik` (
 --
 
 INSERT INTO `uzytkownik` (`user_id`, `login`, `password`, `username`, `dataSystemu`) VALUES
-(1, 'Jakub', 'qwerty', 'Jakub Selonke', '2021-05-06 08:53:22'),
-(2, 'Bartek', 'pass0', 'Bartosz Rożyk', '2021-05-06 08:53:22');
+(1, 'Jakub', 'qwerty', 'Jakub Selonke', '2021-05-16 08:53:22'),
+(2, 'Bartek', 'pass0', 'Bartosz Rożyk', '2021-05-08 08:53:22');
 
 -- --------------------------------------------------------
 
@@ -237,7 +285,13 @@ CREATE TABLE `zajecia` (
 INSERT INTO `zajecia` (`zajecia_id`, `zajeciaNazwa`, `nauczyciel`) VALUES
 (1, 'Historia i Społeczeństwo', 'Monika Ebertowska'),
 (2, 'Angielski', 'Teresa Guzek'),
-(3, 'Matematyka', 'Wiolleta Pisała');
+(3, 'Matematyka', 'Wiolleta Pisała'),
+(4, 'Aplikacje Internetowe', 'Marek Wesołowski'),
+(5, 'Systemy Operacyjne', 'Eugeniusz Kasperkowiak'),
+(6, 'Język Niemiecki', 'Monika Formańska-Żadkowska'),
+(7, 'Statyczne Witryny Internetowe', 'Jeremi Horodeński'),
+(8, 'Język Polski', 'Dawid Ladach'),
+(9, 'Bazy Danych', 'Krystyna Kasperkowiak');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -308,19 +362,19 @@ ALTER TABLE `zajecia`
 -- AUTO_INCREMENT dla tabeli `frekfencja`
 --
 ALTER TABLE `frekfencja`
-  MODIFY `frekfencja_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `frekfencja_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `oceny_all`
 --
 ALTER TABLE `oceny_all`
-  MODIFY `oceny_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `oceny_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `oceny_szczegoly`
 --
 ALTER TABLE `oceny_szczegoly`
-  MODIFY `ocena1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ocena1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT dla tabeli `ogloszenia`
@@ -332,7 +386,7 @@ ALTER TABLE `ogloszenia`
 -- AUTO_INCREMENT dla tabeli `sprawdziany`
 --
 ALTER TABLE `sprawdziany`
-  MODIFY `sprawdziany_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sprawdziany_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownik`
@@ -350,7 +404,7 @@ ALTER TABLE `zachowanie`
 -- AUTO_INCREMENT dla tabeli `zajecia`
 --
 ALTER TABLE `zajecia`
-  MODIFY `zajecia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `zajecia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ograniczenia dla zrzutów tabel

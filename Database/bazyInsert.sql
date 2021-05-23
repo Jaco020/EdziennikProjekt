@@ -107,17 +107,17 @@ INSERT INTO sprawdziany (user_id,zajecia_id,rodzaj,temat,szczegoly,termin) VALUE
 (1,9,'Sprawdzian','SSMS - backup bazy','Wagi 4','2021-05-24');
 
 INSERT INTO frekfencja (user_id,zajecia_id,dataZajec,czasZajec,status,komentarz,tresc) VALUES
-(1,1,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
+(1,1,'2021-05-13','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
 (1,2,'2021-05-15','11:50-12:35','spóźnienie','10 minut po',''),
-(1,3,'2021-05-12','11:50-12:35','Nieusprawiedliwione','Ucieczka z lekcji',''),
-(2,2,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
+(1,3,'2021-05-14','11:50-12:35','Nieusprawiedliwione','Ucieczka z lekcji',''),
+(2,2,'2021-05-09','11:50-12:35','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu wizyty u lekarza'),
 
-(1,2,'2021-05-12','11:50-12:35','Wniosek o Usprawieliwienie','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu jego obecności na pogrzebie'),
-(2,2,'2021-05-12','12:45-13:30','Nieusprawiedliwione','','Proszę o usprawiedliwienie :)'),
-(2,2,'2021-05-12','8:00-8:45','Nieusprawiedliwione','','Proszę usprawiedliwić'),
-(2,2,'2021-05-12','10:45-11:30','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności z powodu wizyty u dentysty'),
-(1,2,'2021-05-12','14:35-15:20','spóźnienie','Uczeń pojawił się 5 minut przed końcem zajęć',''),
-(2,2,'2021-05-12','11:50-12:35','Usprawiedliwione','','Proszę usprawiedliwić, syn był potrzebny przy przeprowadzce');
+(1,2,'2021-05-11','11:50-12:35','Wniosek o Usprawieliwienie','','Proszę o usprawiedliwienie nieobecności mojego syna z powodu jego obecności na pogrzebie'),
+(2,2,'2021-05-17','12:45-13:30','Nieusprawiedliwione','','Proszę o usprawiedliwienie :)'),
+(2,2,'2021-05-21','8:00-8:45','Nieusprawiedliwione','','Proszę usprawiedliwić'),
+(2,2,'2021-05-18','10:45-11:30','Usprawiedliwione','','Proszę o usprawiedliwienie nieobecności z powodu wizyty u dentysty'),
+(1,2,'2021-05-19','14:35-15:20','spóźnienie','Uczeń pojawił się 5 minut przed końcem zajęć',''),
+(2,2,'2021-05-14','11:50-12:35','Usprawiedliwione','','Proszę usprawiedliwić, syn był potrzebny przy przeprowadzce');
 
 INSERT INTO zachowanie (user_id,ocenaPrzewidywana1,ocenaOkresowa,ocenaPrzewidywana2,ocenaKoncowa) VALUES
 (1,'Bardzo Dobry','	Bardzo Dobry','Celujący','Celujący'),

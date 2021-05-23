@@ -71,7 +71,7 @@
                                 $oceny2=$wynik3->fetch_array();
                                 echo "
                                 <tr class='noneBottom'>
-                                    <td class='SubjectName noneLeft'><a href='#'>$row[1]</a> </td>
+                                    <td class='SubjectName noneLeft'><a href='ocenyPrzedmiot.php?przedmiot=$row[1]'>$row[1]</a> </td>
                                     <td>$oceny[0]</td>
                                     <td>$row[2]</td>
                                     <td>$row[3]</td>

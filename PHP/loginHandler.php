@@ -8,7 +8,7 @@
 	}
 	require_once "connect.php";
 
-	$sql="SELECT user_id,username,dataSystemu FROM uzytkownik WHERE login='$userlogin' AND password='$userpass';";
+	$sql=sprintf("SELECT user_id,username,dataSystemu FROM uzytkownik WHERE login='%s' AND password='%s'",$polaczenie->real_escape_string($userlogin),$polaczenie->real_escape_string($userpass));
 	$wynik = $polaczenie->query($sql);
 	if(mysqli_num_rows($wynik)>0 && $wynik){
 		$daneBazy = $wynik->fetch_array(); //$daneBazy[0],=user_id$daneBazy[1] = username , $daneBazy[2] = data , 
