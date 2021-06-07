@@ -59,7 +59,7 @@
                         <th class="longCell noneLeft">Zajęcia</th>
                         <th class="shortCell">Ocena</th>
                         <th class="shortCell">Waga</th>
-                        <th class="lognCell sort_th">Data wystawienia <i class="fas fa-sort"></i></td>
+                        <th class="lognCell sort_th">Data wystawienia <i class="fas fa-sort"></i></th>
                         <th>Czy liczona do średniej</th>
                         <th>Semestr</th>
                     </tr>
